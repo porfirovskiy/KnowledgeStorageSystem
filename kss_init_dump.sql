@@ -31,7 +31,7 @@ CREATE TABLE `parts` (
   KEY `parent` (`parent_id`),
   KEY `project` (`project_id`),
   CONSTRAINT `fkProjectId` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `parts` (
 
 LOCK TABLES `parts` WRITE;
 /*!40000 ALTER TABLE `parts` DISABLE KEYS */;
-INSERT INTO `parts` VALUES (1,'InnoDB',0,1),(2,'Optimization',0,1),(3,'Performance',0,1),(4,'EXPLAIN',3,1);
+INSERT INTO `parts` VALUES (1,'InnoDB',0,1),(2,'Optimization',0,1),(3,'Performance',0,1),(4,'EXPLAIN',3,1),(5,'performance schema',3,1),(6,'sys schema',3,1);
 /*!40000 ALTER TABLE `parts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,4 +105,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-08 20:02:28
+-- Dump completed on 2020-04-08 20:45:08

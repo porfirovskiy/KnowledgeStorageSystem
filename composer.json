@@ -1,0 +1,16 @@
+{
+    "name": "porfirovskiy/kss",
+    "description": "kss project.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "porfirovskiy",
+            "email": "porfirovskiy@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": { "KnowledgeStorageSystem\\": "src"}
+    }
+}

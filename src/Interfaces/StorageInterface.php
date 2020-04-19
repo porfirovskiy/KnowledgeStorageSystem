@@ -4,11 +4,11 @@ namespace KSS\Interfaces;
 
 interface StorageInterface
 {
-    public function create(string $name, array $data): bool;
+    public function create(string $table, string $name, array $data): bool;
 
-    public function get(int $id): array;
+    public function get(string $table, int $id): array;
 
-    public function update(int $id, array $data): bool;
+    public function update(string $table, int $id, array $data): bool;
 
-    public function delete(int $id): bool;
+    public function delete(string $table, int $id): bool;
 }

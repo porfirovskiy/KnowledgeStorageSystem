@@ -13,6 +13,8 @@ use KSS\Interfaces\StorageInterface;
 
 class ProjectRepository implements RepositoryInterface
 {
+    const TABLE = 'projects';
+
     private $storage;
 
     public function __construct(StorageInterface $storage)
@@ -22,21 +24,21 @@ class ProjectRepository implements RepositoryInterface
 
     public function create(string $name, array $data): bool
     {
-        return $this->storage->create($name, $data);
+        return $this->storage->create(self::TABLE, $name, $data);
     }
 
     public function get(int $id): array
     {
-        return $this->storage->get($id);
+        return $this->storage->get(self::TABLE, $id);
     }
 
     public function update(int $id, array $data): bool
     {
-        return $this->storage->update($id, $data);
+        return $this->storage->update(self::TABLE, $id, $data);
     }
 
     public function delete(int $id): bool
     {
-        return $this->storage->delete($id);
+        return $this->storage->delete(self::TABLE, $id);
     }
 }

@@ -18,26 +18,25 @@ class MysqlStorage implements StorageInterface
         $this->connection = $connection->getInstance();
     }
 
-    public function get(int $id): array
+    public function get(string $table, int $id): array
     {
-        //return $this->connection->query('SELECT * FROM ' . $table);
-        $query = $this->connection->prepare('SELECT * FROM projects WHERE id=:id');
+        $query = $this->connection->prepare("SELECT * FROM $table WHERE id=:id");
         $query->bindParam(':id', $id, \PDO::PARAM_INT);
         $query->execute();
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function create(string $name, array $data): bool
+    public function create(string $table, string $name, array $data): bool
     {
         return 1;
     }
 
-    public function update(int $id, array $data): bool
+    public function update(string $table, int $id, array $data): bool
     {
         // TODO: Implement update() method.
     }
 
-    public function delete(int $id): bool
+    public function delete(string $table, int $id): bool
     {
         // TODO: Implement delete() method.
     }

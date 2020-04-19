@@ -33,7 +33,7 @@ class BasicEngine
         return $this->projectRepository->create($name, $data);
     }
 
-    public function getProject(int $id): bool
+    public function getProject(int $id): array
     {
         return $this->projectRepository->get($id);
     }

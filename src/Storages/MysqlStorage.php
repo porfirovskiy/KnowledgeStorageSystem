@@ -20,7 +20,11 @@ class MysqlStorage implements StorageInterface
 
     public function get(int $id): array
     {
-        // TODO: Implement get() method.
+        //return $this->connection->query('SELECT * FROM ' . $table);
+        $query = $this->connection->prepare('SELECT * FROM projects WHERE id=:id');
+        $query->bindParam(':id', $id, \PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function create(string $name, array $data): bool

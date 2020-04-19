@@ -4,15 +4,26 @@
  * Time: 18:35
  */
 
-namespace KnowledgeStorageSystem;
+namespace KSS;
+
+use KSS\Repositories\ProjectRepository;
 
 
 class KSSFacade
 {
+    private $projectRepository;
 
     /**
-     * Routing users commands to project, part, part content
-     * and return results
+     * KSSFacade constructor.
+     * @param ProjectRepository $repository
      */
+    public function __construct(ProjectRepository $projectRepository)
+    {
+        $this->projectRepository = $projectRepository;
+    }
 
+    public function createProject(string $name, array $data): bool
+    {
+        return $this->projectRepository->create($name, $data);
+    }
 }

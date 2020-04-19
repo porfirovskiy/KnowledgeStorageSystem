@@ -11,6 +11,6 @@
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
-        "psr-4": { "KnowledgeStorageSystem\\": "src"}
+        "psr-4": { "KSS\\": "src"}
     }
 }

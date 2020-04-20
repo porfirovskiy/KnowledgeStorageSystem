@@ -10,6 +10,7 @@ use KSS\Storages\MysqlStorage;
 use KSS\Storages\DBConnections\MysqlConnection;
 use KSS\Repositories\ProjectRepository;
 use KSS\Repositories\PartRepository;
+use KSS\Repositories\PartContentRepository;
 
 class BasicEngine
 {
@@ -29,7 +30,7 @@ class BasicEngine
         //get repositories
         $this->projectRepository = new ProjectRepository($storage);
         $this->partRepository = new PartRepository($storage);
-        //$this->partContentRepository = new PartRepository($storage);
+        $this->partContentRepository = new PartContentRepository($storage);
     }
 
     public function createProject(array $params): bool
@@ -72,9 +73,9 @@ class BasicEngine
         return $this->partRepository->delete($id);
     }
 
-    public function createPartContent(string $name, array $data): bool
+    public function createPartContent(array$params): bool
     {
-        return $this->partContentRepository->create($name, $data);
+        return $this->partContentRepository->create($params);
     }
 
     public function getPartContent(int $id): bool
@@ -82,9 +83,9 @@ class BasicEngine
         return $this->partContentRepository->get($id);
     }
 
-    public function updatePartContent(int $id, array $data): bool
+    public function updatePartContent(int $id, array $params): bool
     {
-        return $this->partContentRepository->update($id, $data);
+        return $this->partContentRepository->update($id, $params);
     }
 
     public function deletePartContent(int $id): bool

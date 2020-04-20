@@ -8,7 +8,7 @@ namespace KSS\Interfaces;
 
 interface RepositoryInterface
 {
-    public function create(string $name, array $data): bool;
+    public function create(array $params): bool;
 
     public function get(int $id): array;
 

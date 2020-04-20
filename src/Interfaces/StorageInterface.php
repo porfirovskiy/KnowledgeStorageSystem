@@ -4,7 +4,7 @@ namespace KSS\Interfaces;
 
 interface StorageInterface
 {
-    public function create(string $table, string $name, array $data): bool;
+    public function create(string $table, array $params): bool;
 
     public function get(string $table, int $id): array;
 

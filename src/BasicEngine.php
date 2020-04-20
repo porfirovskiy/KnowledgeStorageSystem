@@ -9,6 +9,7 @@ namespace KSS;
 use KSS\Storages\MysqlStorage;
 use KSS\Storages\DBConnections\MysqlConnection;
 use KSS\Repositories\ProjectRepository;
+use KSS\Repositories\PartRepository;
 
 class BasicEngine
 {
@@ -21,16 +22,19 @@ class BasicEngine
      */
     public function __construct(string $dbHost, int $dbPort, string $dbName, string $dbUser, $dbPassword)
     {
+        //get storage
         $mysqlConnection = new MysqlConnection($dbHost, $dbPort, $dbName, $dbUser, $dbPassword);
-
         $storage = new MysqlStorage($mysqlConnection);
 
+        //get repositories
         $this->projectRepository = new ProjectRepository($storage);
+        $this->partRepository = new PartRepository($storage);
+        //$this->partContentRepository = new PartRepository($storage);
     }
 
-    public function createProject(string $name, array $data): bool
+    public function createProject(array $params): bool
     {
-        return $this->projectRepository->create($name, $data);
+        return $this->projectRepository->create($params);
     }
 
     public function getProject(int $id): array
@@ -38,9 +42,9 @@ class BasicEngine
         return $this->projectRepository->get($id);
     }
 
-    public function updateProject(int $id, array $data): bool
+    public function updateProject(int $id, array $params): bool
     {
-        return $this->projectRepository->update($id, $data);
+        return $this->projectRepository->update($id, $params);
     }
 
     public function deleteProject(int $id): bool
@@ -48,9 +52,9 @@ class BasicEngine
         return $this->projectRepository->delete($id);
     }
 
-    public function createPart(string $name, array $data): bool
+    public function createPart(array $params): bool
     {
-        return $this->partRepository->create($name, $data);
+        return $this->partRepository->create($params);
     }
 
     public function getPart(int $id): bool
@@ -58,9 +62,9 @@ class BasicEngine
         return $this->partRepository->get($id);
     }
 
-    public function updatePart(int $id, array $data): bool
+    public function updatePart(int $id, array $params): bool
     {
-        return $this->partRepository->update($id, $data);
+        return $this->partRepository->update($id, $params);
     }
 
     public function deletePart(int $id): bool

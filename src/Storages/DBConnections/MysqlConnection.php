@@ -36,7 +36,7 @@ class MysqlConnection
             try {
                 $this->instance = new \PDO("mysql:host=". $this->dbHost .';port='.$this->dbPort
                     .';dbname='.$this->dbName,$this->dbUser, $this->dbPassword);
-                $this->instance->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_SILENT);
+                $this->instance->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
                 $this->instance->query('SET NAMES utf8');
                 $this->instance->query('SET CHARACTER SET utf8');
             } catch(PDOException $error) {

@@ -1,8 +1,7 @@
 <?php
-
 /**
- * Date: 19.04.20
- * Time: 16:58
+ * Date: 20.04.20
+ * Time: 15:22
  */
 
 namespace KSS\Repositories;
@@ -10,10 +9,9 @@ namespace KSS\Repositories;
 use KSS\Interfaces\RepositoryInterface;
 use KSS\Interfaces\StorageInterface;
 
-
-class ProjectRepository implements RepositoryInterface
+class PartRepository implements RepositoryInterface
 {
-    const ENTITY = 'projects';
+    const ENTITY = 'parts';
 
     private $storage;
 

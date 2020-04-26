@@ -48,9 +48,9 @@ class BasicEngine
         return $this->projectRepository->update($id, $params);
     }
 
-    public function deleteProject(int $id): bool
+    public function deleteProject(array $params): bool
     {
-        return $this->projectRepository->delete($id);
+        return $this->projectRepository->delete($params);
     }
 
     public function createPart(array $params): bool
@@ -68,9 +68,9 @@ class BasicEngine
         return $this->partRepository->update($id, $params);
     }
 
-    public function deletePart(int $id): bool
+    public function deletePart(array $params): bool
     {
-        return $this->partRepository->delete($id);
+        return $this->partRepository->delete($params);
     }
 
     public function createPartContent(array$params): bool
@@ -88,8 +88,8 @@ class BasicEngine
         return $this->partContentRepository->update($id, $params);
     }
 
-    public function deletePartContent(int $id): bool
+    public function deletePartContent(array $params): bool
     {
-        return $this->partContentRepository->delete($id);
+        return $this->partContentRepository->delete($params);
     }
 }

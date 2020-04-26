@@ -37,8 +37,8 @@ class ProjectRepository implements RepositoryInterface
         return $this->storage->update(self::ENTITY, $id, $params);
     }
 
-    public function delete(int $id): bool
+    public function delete(array $params): bool
     {
-        return $this->storage->delete(self::ENTITY, $id);
+        return $this->storage->delete(self::ENTITY, $params);
     }
 }

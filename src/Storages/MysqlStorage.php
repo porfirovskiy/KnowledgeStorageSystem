@@ -52,10 +52,10 @@ class MysqlStorage implements StorageInterface
         return $query->execute();
     }
 
-    public function delete(string $table, int $id): bool
+    public function delete(string $table, array $params): bool
     {
         $query = $this->connection->prepare("DELETE FROM $table WHERE id=:id");
-        $query->bindParam(':id', $id, \PDO::PARAM_INT);
+        $query->bindParam(':id', $params['id'], \PDO::PARAM_INT);
 
         return $query->execute();
     }

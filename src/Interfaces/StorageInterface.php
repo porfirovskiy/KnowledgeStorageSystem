@@ -10,5 +10,5 @@ interface StorageInterface
 
     public function update(string $table, int $id, array $data): bool;
 
-    public function delete(string $table, int $id): bool;
+    public function delete(string $table, array $params): bool;
 }
